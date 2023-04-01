@@ -23,6 +23,7 @@ import {
 
 import { addDoc, collection } from 'firebase/firestore';
 import { firestore } from '../lib/firebase';
+import { getRandomUser } from '../lib/randomUser';
 
 export const NewPostModal: FC<{
   isOpen: boolean;
@@ -61,13 +62,15 @@ export const NewPostModal: FC<{
       imgUrl = await getDownloadURL(storageRef);
     }
 
-    console.log(newPostObj);
+    const user = await getRandomUser();
 
     await addDoc(collection(firestore, 'posts'), {
       created_at: new Date(),
       title,
       body,
       img_url: imgUrl,
+      user_name: user.userName,
+      user_img: user.userImg,
     });
 
     setIsLoading(false);
