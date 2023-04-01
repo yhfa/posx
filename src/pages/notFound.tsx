@@ -4,7 +4,7 @@ import notFound from '../assets/not-found.avif';
 
 function NotFound() {
   return (
-    <VStack w={96} m="auto" align="center" justify="center">
+    <VStack w={{ base: 64, md: 96 }} m="auto" align="center" justify="center">
       <Image src={notFound} />
       <Box>
         <Link as={ReactRouterLink} to="/">

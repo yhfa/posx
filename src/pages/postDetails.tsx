@@ -42,8 +42,10 @@ function PostDetails() {
           <Box mb="4">
             <PostItem post={post} />
           </Box>
-          <CommentsList postId={postId} />
-          <NewCommentInput postId={postId} />
+          <Box p={{ base: 12, md: 2 }}>
+            <CommentsList postId={postId} />
+            <NewCommentInput postId={postId} />
+          </Box>
         </Box>
       ) : (
         <Box padding="6" boxShadow="lg" bg="white" w="full">
