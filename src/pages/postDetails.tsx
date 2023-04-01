@@ -36,13 +36,18 @@ function PostDetails() {
   }, [postId]);
 
   return (
-    <VStack w="96" mx="auto">
+    <VStack
+      maxW={{ base: 'md', md: 'lg' }}
+      mx="auto"
+      mb="8"
+      p={{ base: 8, md: 0 }}
+    >
       {post && postId ? (
         <Box>
           <Box mb="4">
             <PostItem post={post} />
           </Box>
-          <Box p={{ base: 12, md: 2 }}>
+          <Box>
             <CommentsList postId={postId} />
             <NewCommentInput postId={postId} />
           </Box>

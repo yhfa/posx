@@ -18,7 +18,7 @@ export const PostItem: FC<{ post: Post }> = ({
   post: { id, createdAt, body, title, userName, imgUrl, userImg },
 }) => {
   return (
-    <Card maxW="md" variant="outline" p={{ base: 8, md: 0 }}>
+    <Card variant="outline">
       <CardHeader>
         <Flex>
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
@@ -37,7 +37,6 @@ export const PostItem: FC<{ post: Post }> = ({
           fontWeight="bold"
           textTransform="capitalize"
           mb="4"
-          w="96"
           isTruncated
         >
           {title}

@@ -37,7 +37,13 @@ export const PostsList = () => {
   }, []);
 
   return (
-    <VStack spacing={4} w="96" mx="auto" mb="8">
+    <VStack
+      spacing={4}
+      maxW={{ base: 'md', md: 'lg' }}
+      mx="auto"
+      mb="8"
+      p={{ base: 8, md: 0 }}
+    >
       {posts.map(post => (
         <LinkBox as="article" key={post.id}>
           <LinkOverlay as={ReactRouterLink} to={`/posts/${post.id}`}>

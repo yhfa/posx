@@ -78,54 +78,48 @@ export const NewPostModal: FC<{
   };
 
   return (
-    <>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <form onSubmit={handleSubmit} ref={newPostFormRef}>
-          <ModalContent>
-            <ModalHeader>Add New Post</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}>
-              <FormControl isRequired>
-                <FormLabel>Title</FormLabel>
-                <Input
-                  ref={initialRef}
-                  placeholder="ex. My meal"
-                  name="title"
-                />
-              </FormControl>
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <form onSubmit={handleSubmit} ref={newPostFormRef}>
+        <ModalContent w={{ base: '90%', md: '100%' }}>
+          <ModalHeader>Add New Post</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl isRequired>
+              <FormLabel>Title</FormLabel>
+              <Input ref={initialRef} placeholder="ex. My meal" name="title" />
+            </FormControl>
 
-              <FormControl mt={4} isRequired>
-                <FormLabel>Body</FormLabel>
-                <Textarea
-                  placeholder="ex. I eat chinese food today 😋"
-                  name="body"
-                />
-              </FormControl>
+            <FormControl mt={4} isRequired>
+              <FormLabel>Body</FormLabel>
+              <Textarea
+                placeholder="ex. I eat chinese food today 😋"
+                name="body"
+              />
+            </FormControl>
 
-              <FormControl mt={4}>
-                <FormLabel>Image</FormLabel>
-                <input type="file" accept="image/*" name="image" />
-              </FormControl>
-            </ModalBody>
+            <FormControl mt={4}>
+              <FormLabel>Image</FormLabel>
+              <input type="file" accept="image/*" name="image" />
+            </FormControl>
+          </ModalBody>
 
-            <ModalFooter>
-              <Button
-                colorScheme="blue"
-                mr={3}
-                type="submit"
-                bg="primary.300"
-                _hover={{ bg: 'primary.400' }}
-                disabled={newPostFormRef.current?.checkValidity()}
-                isLoading={isLoading}
-              >
-                Save
-              </Button>
-              <Button onClick={onClose}>Cancel</Button>
-            </ModalFooter>
-          </ModalContent>
-        </form>
-      </Modal>
-    </>
+          <ModalFooter>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              type="submit"
+              bg="primary.300"
+              _hover={{ bg: 'primary.400' }}
+              disabled={newPostFormRef.current?.checkValidity()}
+              isLoading={isLoading}
+            >
+              Save
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </form>
+    </Modal>
   );
 };
