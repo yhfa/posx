@@ -49,24 +49,24 @@ export const NewPostModal: FC<{
 
     if (image.size) {
       const storage = getStorage();
-      storageRef = ref(storage, image.name);
+      storageRef = ref(storage, `${crypto.randomUUID()}_${image.name}`);
       await uploadBytes(storageRef, image);
     }
 
-    let imageUrl: string | null = null;
+    let imgUrl: string | null = null;
 
     if (storageRef) {
       // Upload completed successfully, now we can get the download URL
-      imageUrl = await getDownloadURL(storageRef);
+      imgUrl = await getDownloadURL(storageRef);
     }
 
     console.log(newPostObj);
 
     await addDoc(collection(firestore, 'posts'), {
-      createdAt: new Date(),
+      created_at: new Date(),
       title,
       body,
-      imageUrl,
+      img_url: imgUrl,
     });
 
     setIsLoading(false);
