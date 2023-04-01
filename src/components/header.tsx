@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Box, Image, Button } from '@chakra-ui/react';
+import { Link as ReactRouterLink } from 'react-router-dom';
+import { Box, Image, Button, Link } from '@chakra-ui/react';
 
 import logo from '../assets/logo.png';
 import { NewPostModal } from './newPostModal';
-import { Post } from '../models';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,9 @@ function Header() {
         py="8"
       >
         <Box h="8">
-          <Image src={logo} alt="Posx Logo" h="full" objectFit="cover" />
+          <Link as={ReactRouterLink} to="/">
+            <Image src={logo} alt="Posx Logo" h="full" objectFit="cover" />
+          </Link>
         </Box>
         <Button
           bg="secondary.200"
