@@ -11,6 +11,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Textarea,
 } from '@chakra-ui/react';
 import {
   StorageReference,
@@ -93,7 +94,7 @@ export const NewPostModal: FC<{
 
               <FormControl mt={4} isRequired>
                 <FormLabel>Body</FormLabel>
-                <Input
+                <Textarea
                   placeholder="ex. I eat chinese food today 😋"
                   name="body"
                 />
