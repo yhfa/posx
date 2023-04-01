@@ -1,5 +1,22 @@
+import { Route, Routes } from 'react-router-dom';
+import { Box } from '@chakra-ui/react';
+
+import PostDetails from './pages/postDetails';
+import Home from './pages/home';
+import Header from './components/header';
+
 function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <Header />
+      <Box as="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/posts/:postId" element={<PostDetails />} />
+        </Routes>
+      </Box>
+    </>
+  );
 }
 
 export default App;
