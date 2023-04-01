@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react';
 
 import PostDetails from './pages/postDetails';
 import Home from './pages/home';
+import NotFound from './pages/notFound';
 import Header from './components/header';
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
       <Header />
       <Box as="main">
         <Routes>
+          <Route path="*" element={<NotFound />} />
+
           <Route path="/" element={<Home />} />
           <Route path="/posts/:postId" element={<PostDetails />} />
         </Routes>
